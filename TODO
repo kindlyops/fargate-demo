@@ -1,0 +1,8 @@
+set up postgres container, configure database connection
+set up demo polls application from django tutorial
+set up LDAP integration
+set up ECS stack
+set up deploy pipeline
+configure static file handling
+configure TLS
+

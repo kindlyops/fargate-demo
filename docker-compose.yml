@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+  web:
+    working_dir: /home/appuser
+    volumes:
+      - .:/home/appuser
+    build:
+      context: .
+    ports:
+      - "8080:2015"
+    command:
+      [-agree, -conf, /home/appuser/Caddyfile-dev]
+  db:
+    image: postgres:9.6.4
+    environment:
+      - POSTGRES_DB=demolab
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data

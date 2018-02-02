@@ -1,0 +1,5 @@
+# note do not put uWSGI or psychopg2 in requirements.txt 
+# it will bloat the docker image to install compiler toolchain
+# install via packages instead.
+Django==2.0.2
+whitenoise==3.3.1

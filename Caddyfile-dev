@@ -1,0 +1,25 @@
+0.0.0.0:2015
+startup uwsgi --ini /home/appuser/uwsgi.ini &
+
+header / {
+  -Server
+
+	# be sure to plan & test before enabling
+	# Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+
+	Referrer-Policy "same-origin"
+	X-XSS-Protection "1; mode=block"
+	X-Content-Type-Options "nosniff"
+
+	# customize for your app
+	#Content-Security-Policy "connect-src 'self'; default-src 'none'; font-src 'self'; form-action 'self'; frame-ancestors 'none'; img-src data: 'self'; object-src 'self'; style-src 'self'; script-src 'self';"
+	X-Frame-Options "DENY"
+}
+
+proxy / localhost:8080 {
+  transparent
+}
+
+log / stdout "{combined}"
+
+errors stdout
