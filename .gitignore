@@ -102,3 +102,4 @@ ENV/
 
 postgres-data/
 .bash_history
+.ipython/
